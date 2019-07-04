@@ -1,0 +1,92 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Appointment Details</h3>
+  </div>
+  <div class="form-group">
+    <input [(ngModel)]="apptId" placeholder="Confirmation ID">
+    <button (click)="getAppointment()" class="btn btn-primary">Retrieve Appointment</button>
+    <div *ngIf="dataLoad" id="GetDetailsPannel">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th>First Name:</th>
+            <th>Last Name</th>
+            <th>Date Of Birth</th>
+            <th>Appointment date</th>
+            <th>Update</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{appointmentDetails.firstName}}</td>
+            <td>{{appointmentDetails.lastName}}</td>
+            <td>{{appointmentDetails.dateOfBirth | date}}</td>
+            <td>{{appointmentDetails.appointmentDate | date}}</td>
+            <td>
+              <button class="btn btn-primary" type="submit" (click)="updateAppointment()">
+                Update
+              </button>
+            </td>
+            <td>
+              <button class="btn btn-danger" type="submit" (click)="confirmDeleteAppointment()">
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+
+<!--For the update form-->
+
+<div *ngIf="showUpdateForm">
+  <form [formGroup]="updateForm" (ngSubmit)="SubmitUpdatedChanges()" class="form-horizontal">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Update Appointment Details</h3>
+      </div>
+      <div class="panel-body">
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="FirstName">First Name</label>
+          <div class="col-sm-8">
+            <input autocomplete="off" id="firstName"
+                   formControlName="FirstName"
+                   type="text" class="form-control">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="LastName">Last Name</label>
+          <div class="col-sm-8">
+            <input id="LastName" formControlName="LastName" type="text" class="form-control">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="DateOfBirth">Date Of Birth</label>
+          <div class="col-sm-8">
+            <input id="dateOfBirth" formControlName="DateOfBirth" type="date" class="form-control">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="AppointmentTime">Appointment Time</label>
+          <div class="col-sm-8">
+            <input id="appointmentTime" formControlName="AppointmentTime" type="datetime-local" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="panel-footer">
+        <button mat-button class="btn btn-primary" type="submit">Update</button>
+      </div>
+    </div>
+  </form>
+</div>
+<button pButton type="button" icon="pi pi-check" iconPos="left"></button>
+<p-button label="Click" icon="pi pi-check" iconPos="left"></p-button>
+
+

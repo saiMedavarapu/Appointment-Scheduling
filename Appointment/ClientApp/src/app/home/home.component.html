@@ -1,0 +1,79 @@
+
+<!--<p>Welcome to your new single-page application, built with:</p>
+<ul>
+  <li><a href='https://get.asp.net/'>ASP.NET Core</a> and <a href='https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx'>C#</a> for cross-platform server-side code</li>
+  <li><a href='https://angular.io/'>Angular</a> and <a href='http://www.typescriptlang.org/'>TypeScript</a> for client-side code</li>
+  <li><a href='http://getbootstrap.com/'>Bootstrap</a> for layout and styling</li>
+</ul>
+<p>To help you get started, we've also set up:</p>
+<ul>
+  <li><strong>Client-side navigation</strong>. For example, click <em>Counter</em> then <em>Back</em> to return here.</li>
+  <li><strong>Angular CLI integration</strong>. In development mode, there's no need to run <code>ng serve</code>. It runs in the background automatically, so your client-side resources are dynamically built on demand and the page refreshes when you modify any file.</li>
+  <li><strong>Efficient production builds</strong>. In production mode, development-time features are disabled, and your <code>dotnet publish</code> configuration automatically invokes <code>ng build</code> to produce minified, ahead-of-time compiled JavaScript files.</li>
+</ul>
+<p>The <code>ClientApp</code> subdirectory is a standard Angular CLI application. If you open a command prompt in that directory, you can run any <code>ng</code> command (e.g., <code>ng test</code>), or use <code>npm</code> to install extra packages into it.</p>-->
+
+
+
+
+  <form [formGroup]
+        ="customerForm" (ngSubmit)="onSubmit()" class="form-horizontal">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Book Appointment</h3>
+      </div>
+      <div class="panel-body">
+        <div class="form-group" [ngClass]="{'has-error' : customerForm.get('FirstName').errors &&
+             (customerForm.get('FirstName').touched || customerForm.get('FirstName').dirty)}">
+          <label class="col-sm-2 control-label" for="FirstName">First Name</label>
+          <div class="col-sm-8">
+            <input id="firstName" formControlName="FirstName" type="text" class="form-control">
+            <span class="help-block" *ngIf="customerForm.get('FirstName').errors &&
+             (customerForm.get('FirstName').touched || customerForm.get('FirstName').dirty)">
+              <span *ngIf="customerForm.get('FirstName').errors.required">
+                First Name is Required.
+              </span>
+              <span *ngIf="customerForm.get('FirstName').errors.minlength || customerForm.get('FirstName').errors.maxlength">
+                First Name must be greater than 1 character and less than 50 characters.
+              </span>
+            </span>
+          </div>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error' : customerForm.get('LastName').errors &&
+             (customerForm.get('LastName').touched || customerForm.get('LastName').dirty)}">
+          <label class="col-sm-2 control-label" for="LastName">Last Name</label>
+          <div class="col-sm-8">
+            <input id="LastName" formControlName="LastName" type="text" class="form-control">
+            <span class="help-block" *ngIf="customerForm.get('LastName').errors &&
+             (customerForm.get('LastName').touched || customerForm.get('LastName').dirty)">
+              <span *ngIf="customerForm.get('LastName').errors.required">
+                Last Name is Required.
+              </span>
+              <span *ngIf="customerForm.get('LastName').errors.minlength || customerForm.get('LastName').errors.maxlength">
+                Last Name must be greater than 1 character and less than 50 characters.
+              </span>
+            </span>
+          </div>
+        </div>
+       
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="DateOfBirth">Date Of Birth</label>
+          <div class="col-sm-8">
+            <input id="dateOfBirth" formControlName="DateOfBirth" type="date"  class="form-control">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="AppointmentTime">Appointment Time</label>
+          <div class="col-sm-8">
+            <input id="appointmentTime" formControlName="AppointmentTime" type="datetime-local" class="form-control">
+          </div>
+        </div>
+
+      </div>
+      <div class="panel-footer">
+        <button class="btn btn-primary" type="submit">Book</button>
+      </div>
+    </div>
+  </form>
+
