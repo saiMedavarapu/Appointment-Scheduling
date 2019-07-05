@@ -31,6 +31,15 @@ export interface customerModel {
   lastName: string;
 }
 ```
+* Reactive form for the customer details. Createthe following form in the ngoninit.
+``` typescript
+ this.customerForm = this.fb.group({
+      FirstName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
+      LastName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
+      DateOfBirth: [''],
+      AppointmentTime: ['']
+    });
+```
 * Service is created to make the calls to the API which returns an observable which can be subscribed to when needed.
 ``` typescript
 @Injectable()
