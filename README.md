@@ -4,6 +4,17 @@ Full stack application built using ASP.NET Core, EF Core, SSMS and Angular. This
 Download the zip. Open Appointment.sln and run IIS Express.
 # Project description :
 Appointment scheduling lets Admin(For now) to schedule the appointment for a particular date and time. The admin can later update and delete the appointment on demand.
+## Patterns used:
+* Dependency Injection Pattern
+* Singleton pattern
+* PUBSUB Pattern
+## Angular features:
+* Reactive forms
+* Components
+* services
+* Angular routing
+* Dependency Injection
+* Observables from rxjs
 # Documentation:
 
 ## Client Side using Angular.
