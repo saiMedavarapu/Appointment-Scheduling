@@ -113,5 +113,23 @@ export class HomeService {
             }
             return null;
         }
-    ```
-   
+       ```
+   For delete operation
+   ```c#
+        public async Task<ActionResult<Entities.Appointment>> DeleteAppointment([FromBody]Entities.Appointment item)
+        {
+            try
+            {
+
+                var student = await _context.Appointments.FirstOrDefaultAsync(b => b.AppointmentID == item.AppointmentID);
+                _context.Appointments.Remove(student);
+                await _context.SaveChangesAsync();
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return null;
+        }
+      ```
