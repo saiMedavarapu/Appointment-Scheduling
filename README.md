@@ -12,6 +12,7 @@ Appointment scheduling lets Admin(For now) to schedule the appointment for a par
 * Reactive forms
 * Components
 * services
+* Pipes
 * Angular routing
 * Dependency Injection
 * Observables from rxjs
