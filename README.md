@@ -64,7 +64,7 @@ export class HomeService {
    ## Web API using .NET core, EF core, C#, LINQ:
    
    
-   ```c#
+   ``` C#
     [HttpPost("[action]")]
         public async Task<ActionResult<int>> CreateAppointment([FromBody] Entities.Appointment item)
         {
@@ -113,9 +113,9 @@ export class HomeService {
             }
             return null;
         }
-       ```
+   ```
    For delete operation
-   ```c#
+   ``` C#
         public async Task<ActionResult<Entities.Appointment>> DeleteAppointment([FromBody]Entities.Appointment item)
         {
             try
@@ -132,4 +132,4 @@ export class HomeService {
             }
             return null;
         }
-      ```
+    ```
