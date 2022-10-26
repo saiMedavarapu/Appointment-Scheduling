@@ -31,7 +31,7 @@ namespace Appointment.Controllers
 
                 var message = new MimeMessage();
                 //From Address
-                message.From.Add(new MailboxAddress("sai vaibhav medavarapu", "vaibhav.medavarapu@gmail.com"));
+                message.From.Add(new MailboxAddress("Prajwal Nangare", "prajwalnangare04@gmail.com"));
 
                 //To address
                 message.To.Add(new MailboxAddress("Sachin Samrat Medavarapu", "saivaibhav90@gmail.com"));
@@ -54,7 +54,7 @@ namespace Appointment.Controllers
                     client.Connect("smtp.gmail.com", 587, false);
 
                     // Note: only needed if the SMTP server requires authentication
-                    client.Authenticate("Sai Vaibhav Medavarapu", "flipkart1!");
+                    client.Authenticate("Prajwal Nangare", "flipkart1!");
 
                     client.Send(message);
                     client.Disconnect(true);
